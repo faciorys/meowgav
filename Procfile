@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/TestBot-1.0-SNAPSHOT-jar-with-dependencies.jar
+web: java -Dserver.port=33500 -jar target/TestBot-1.0-SNAPSHOT-jar-with-dependencies.jar
