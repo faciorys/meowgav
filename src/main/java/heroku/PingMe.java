@@ -12,7 +12,7 @@ public class PingMe {
 
     @SneakyThrows
     public void ping() {
-        URL url = new URL("https://exchanger-tg-bot.herokuapp.com/");
+        URL url = new URL("https://meowgavbot.herokuapp.com/");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.connect();
 
