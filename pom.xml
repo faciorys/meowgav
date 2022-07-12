@@ -11,10 +11,19 @@
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>TestBot</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.package.MainClass</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
