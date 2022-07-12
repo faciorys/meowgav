@@ -5,9 +5,6 @@ import lombok.SneakyThrows;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public class PingMe {
 
     @SneakyThrows
