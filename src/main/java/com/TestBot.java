@@ -1,5 +1,10 @@
-import entities.Currency;
+package com;
+
+import com.entities.Currency;
 import lombok.SneakyThrows;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -11,12 +16,13 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
-import service.CurrencyConversionService;
-import service.CurrencyModeService;
+import com.service.CurrencyConversionService;
+import com.service.CurrencyModeService;
 
 import java.net.URL;
 import java.util.*;
 
+@Component
 public class TestBot extends TelegramLongPollingBot {
 
     private final CurrencyModeService currencyModeService = CurrencyModeService.getInstance();
@@ -66,8 +72,9 @@ public class TestBot extends TelegramLongPollingBot {
                         .build());
     }
 
+    @EventListener(ApplicationReadyEvent.class)
     @SneakyThrows
-    public static void main(String[] args) {
+    public void main() {
         TestBot testBot = new TestBot();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
         for (int i = 0; i < 1000; i++) {
@@ -97,7 +104,7 @@ public class TestBot extends TelegramLongPollingBot {
                 switch (command) {
                     case "/set_currency" -> {
                         List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
-                        for (entities.Currency currency : Currency.values()) {
+                        for (Currency currency : Currency.values()) {
                             buttons.add(Arrays.asList(
                                     InlineKeyboardButton.builder().text(currency.name()).callbackData("ORIGINAL:" + currency).build(),
                                     InlineKeyboardButton.builder().text(currency.name()).callbackData("TARGET:" + currency).build()));
@@ -118,8 +125,6 @@ public class TestBot extends TelegramLongPollingBot {
             Currency originalCurrency = currencyModeService.getOriginalCurrency(message.getChatId());
             Currency targetCurrency = currencyModeService.getTargetCurrency(message.getChatId());
             double ratio = currencyConversionService.getConversionRatio(originalCurrency, targetCurrency);
-            double sdsdsd = value.get() * ratio;
-            System.out.println(value.get() + " *  " + ratio + " = " + sdsdsd);
             if (value.isPresent()) {
                 execute(
                         SendMessage.builder()

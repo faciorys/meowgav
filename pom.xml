@@ -75,7 +75,7 @@
         <!--    <modelVersion>4.0.0</modelVersion>-->
 
         <!--    <groupId>org.example</groupId>-->
-        <!--    <artifactId>TestBot</artifactId>-->
+        <!--    <artifactId>com.TestBot</artifactId>-->
         <!--    <version>1.0-SNAPSHOT</version>-->
         <!--    <build>-->
         <!--        <plugins>-->
@@ -93,7 +93,7 @@
         <!--                    <archive>-->
         <!--                        <manifest>-->
         <!--                            <addClasspath>true</addClasspath>-->
-        <!--                            <mainClass>TestBot</mainClass>-->
+        <!--                            <mainClass>com.TestBot</mainClass>-->
         <!--                        </manifest>-->
         <!--                    </archive>-->
         <!--                    <descriptorRefs>-->

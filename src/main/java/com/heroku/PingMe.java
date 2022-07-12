@@ -1,4 +1,4 @@
-package heroku;
+package com.heroku;
 
 import lombok.SneakyThrows;
 

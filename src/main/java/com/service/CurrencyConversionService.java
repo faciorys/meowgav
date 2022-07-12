@@ -1,7 +1,7 @@
-package service;
+package com.service;
 
-import entities.Currency;
-import service.impl.NbrbCurrencyConversionService;
+import com.entities.Currency;
+import com.service.impl.NbrbCurrencyConversionService;
 
 public interface CurrencyConversionService {
     static CurrencyConversionService getInstance() {

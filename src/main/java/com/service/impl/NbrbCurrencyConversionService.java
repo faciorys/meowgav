@@ -1,13 +1,13 @@
-package service.impl;
+package com.service.impl;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import entities.Currency;
+import com.entities.Currency;
 import lombok.SneakyThrows;
 import org.json.JSONObject;
-import service.CurrencyConversionService;
+import com.service.CurrencyConversionService;
 
 public class NbrbCurrencyConversionService implements CurrencyConversionService {
     @Override

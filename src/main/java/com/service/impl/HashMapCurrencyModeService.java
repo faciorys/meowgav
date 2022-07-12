@@ -1,7 +1,7 @@
-package service.impl;
+package com.service.impl;
 
-import entities.Currency;
-import service.CurrencyModeService;
+import com.entities.Currency;
+import com.service.CurrencyModeService;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,7 +1,7 @@
-package service.impl;
+package com.service.impl;
 
-import entities.Currency;
-import service.CurrencyConversionService;
+import com.entities.Currency;
+import com.service.CurrencyConversionService;
 
 public class HardcodedCurrencyConversionService implements CurrencyConversionService {
     @Override
