@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
+web: java $JAVA_OPTS -jar target/TestBot-1.0-SNAPSHOT-jar-with-dependencies.jar -Dserver.port=$PORT
