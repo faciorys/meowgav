@@ -1,6 +1,7 @@
 package com;
 
 import com.entities.Currency;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -19,10 +20,10 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import com.service.CurrencyConversionService;
 import com.service.CurrencyModeService;
 
-import java.net.URL;
 import java.util.*;
 
 @Component
+@RequiredArgsConstructor
 public class TestBot extends TelegramLongPollingBot {
 
     private final CurrencyModeService currencyModeService = CurrencyModeService.getInstance();
@@ -77,10 +78,6 @@ public class TestBot extends TelegramLongPollingBot {
     public void main() {
         TestBot testBot = new TestBot();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-        for (int i = 0; i < 1000; i++) {
-            URL url = new URL("https://www.nbrb.by/api/exrates/rates/" + i);
-
-        }
         telegramBotsApi.registerBot(testBot);
 
     }
