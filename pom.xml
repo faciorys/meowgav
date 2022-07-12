@@ -16,7 +16,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>TestBot</mainClass>
+                            <mainClass>src/main/java/TestBot.java</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
