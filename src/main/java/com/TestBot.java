@@ -98,21 +98,19 @@ public class TestBot extends TelegramLongPollingBot {
             Optional<MessageEntity> commandEntity = message.getEntities().stream().filter(e -> "bot_command".equals(e.getType())).findFirst();
             if (commandEntity.isPresent()) {
                 String command = message.getText().substring(commandEntity.get().getOffset(), commandEntity.get().getLength());
-                switch (command) {
-                    case "/set_currency" -> {
-                        List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
-                        for (Currency currency : Currency.values()) {
-                            buttons.add(Arrays.asList(
-                                    InlineKeyboardButton.builder().text(currency.name()).callbackData("ORIGINAL:" + currency).build(),
-                                    InlineKeyboardButton.builder().text(currency.name()).callbackData("TARGET:" + currency).build()));
-                        }
-                        execute(SendMessage.builder()
-                                .text("Please choose: ")
-                                .chatId(message.getChatId().toString())
-                                .replyMarkup(InlineKeyboardMarkup.builder()
-                                        .keyboard(buttons)
-                                        .build()).build());
+                if ("/set_currency".equals(command)) {
+                    List<List<InlineKeyboardButton>> buttons = new ArrayList<>();
+                    for (Currency currency : Currency.values()) {
+                        buttons.add(Arrays.asList(
+                                InlineKeyboardButton.builder().text(currency.name()).callbackData("ORIGINAL:" + currency).build(),
+                                InlineKeyboardButton.builder().text(currency.name()).callbackData("TARGET:" + currency).build()));
                     }
+                    execute(SendMessage.builder()
+                            .text("Please choose: ")
+                            .chatId(message.getChatId().toString())
+                            .replyMarkup(InlineKeyboardMarkup.builder()
+                                    .keyboard(buttons)
+                                    .build()).build());
                 }
             }
         }
