@@ -128,7 +128,7 @@ public class TestBot extends TelegramLongPollingBot {
                                 .chatId(message.getChatId().toString())
                                 .text(
                                         String.format(
-                                                "%4.2f %s is %4.2f %s Алена бусик",
+                                                "%4.2f %s is %4.2f %s",
                                                 value.get(), originalCurrency, (value.get() * ratio), targetCurrency))
                                 .build());
                 return;
