@@ -120,6 +120,7 @@ public class TestBot extends TelegramLongPollingBot {
             Currency originalCurrency = currencyModeService.getOriginalCurrency(message.getChatId());
             Currency targetCurrency = currencyModeService.getTargetCurrency(message.getChatId());
             double ratio = currencyConversionService.getConversionRatio(originalCurrency, targetCurrency);
+
             if (value.isPresent()) {
                 execute(
                         SendMessage.builder()
