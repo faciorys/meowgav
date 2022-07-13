@@ -9,6 +9,7 @@ import java.net.URL;
 
 @Slf4j
 public class PingMe {
+
     @Scheduled(fixedRateString = "PT20M")
     @SneakyThrows
     public void ping() {
